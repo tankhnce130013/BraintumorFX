@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.doctor.ViewTask.ViewTask">
+<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.ViewTask">
    <children>
       <HBox stylesheets="@/css/doctor/ViewTask.css">
          <children>
@@ -62,7 +62,7 @@
             <Insets bottom="20.0" top="30.0" />
          </VBox.margin>
       </HBox>
-      <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@../css/doctor/ViewTask.css">
+      <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@/css/doctor/ViewTask.css">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

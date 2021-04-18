@@ -75,7 +75,8 @@ public abstract class OAuthAuthenticator {
     public void startLogin(Button btn, VBox mainview) {
         loginAttempted = true;
         stage = new Stage();
-        stage.getIcons().add(new Image("/Image/Brain.png"));
+        Image image = new Image(getClass().getResource("/Image/Brain.png").toString());
+        stage.getIcons().add(image);
         mainview.setDisable(true);
         WebView root = new WebView();
         stage.setOnCloseRequest(e -> {
@@ -135,7 +136,8 @@ public abstract class OAuthAuthenticator {
                                 Stage stage = new Stage();
                                 stage.setTitle("Home");
                                 stage.initStyle(StageStyle.UNDECORATED);
-                                stage.getIcons().add(new Image("/Image/Brain.png"));
+
+                                stage.getIcons().add(new Image(getClass().getResource("/Image/Brain.png").toString()));
                                 //grab your root here
                                 root.setOnMousePressed(e -> {
                                     xOffset = e.getSceneX();
@@ -174,7 +176,7 @@ public abstract class OAuthAuthenticator {
                                 Stage stage = new Stage();
                                 stage.setTitle("Home");
                                 stage.initStyle(StageStyle.UNDECORATED);
-                                stage.getIcons().add(new Image("/Image/Brain.png"));
+                                stage.getIcons().add(new Image(getClass().getResource("/Image/Brain.png").toString()));
                                 //grab your root here
                                 root.setOnMousePressed(e -> {
                                     xOffset = e.getSceneX();

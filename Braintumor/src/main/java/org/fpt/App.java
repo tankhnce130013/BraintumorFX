@@ -26,7 +26,8 @@ public class App extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
             primaryStage.setTitle("Login");
             primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.getIcons().add(new Image("/Image/Brain.png"));
+            Image image = new Image(getClass().getResource("/Image/Brain.png").toString());
+            primaryStage.getIcons().add(image);
             //grab your root here
             root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();

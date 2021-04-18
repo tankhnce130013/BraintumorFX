@@ -56,7 +56,7 @@ public class Login implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Creating a graphic (image)
-        Image img = new Image("resources/Image/pngtree-spring-medical-blue-minimalist-doctor-background-image_210583.png");
+        Image img = new Image(getClass().getResource("/Image/pngtree-spring-medical-blue-minimalist-doctor-background-image_210583.png").toString());
         ImageView view = new ImageView(img);
         view.setFitHeight(568);
         view.setPreserveRatio(true);

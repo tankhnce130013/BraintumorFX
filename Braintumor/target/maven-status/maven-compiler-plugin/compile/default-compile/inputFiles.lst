@@ -1,43 +1,43 @@
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/Profile.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/tTaskDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Entity/Technician.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/technician/Add.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/ImageModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/login/Login.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/EditTask.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/App.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/TaskModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Entity/Task.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/tTaskModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/PrimaryController.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/login/OAuthAuthenticator.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/login/OAuthGoogleAuthenticator.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/TechnicianDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/PatientModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/ViewTask.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/SystemInfo.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/login/OAuthType.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Entity/Patient.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/technician/Home.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/technician/MainController.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Connection/JdbcConnection.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/ImageDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/TaskDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/login/OAuthCompletedCallback.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/DoctorModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/PatientDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/SecondaryController.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/technician/Edit.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/FullTaskModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/FullTaskDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/ProfileEdit.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Entity/Image.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/HomeController.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/TechnicianModel.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Model/Operation.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Entity/Doctor.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/module-info.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/DoctorDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/Predict.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/DTO/HistoryDTO.java
-/Users/macbookair/Desktop/Do An/BraintumorFX/Braintumor/src/main/java/org/fpt/Controller/doctor/MainController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Entity\Technician.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\FullTaskDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\tTaskModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\technician\Home.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\DoctorModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Connection\JdbcConnection.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\HomeController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\technician\Edit.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Entity\Image.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Entity\Task.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\TaskModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\PrimaryController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\technician\Add.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\technician\MainController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\login\OAuthAuthenticator.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\ImageDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\ImageModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\Profile.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\TechnicianDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\login\Login.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Entity\Doctor.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\login\OAuthGoogleAuthenticator.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\ProfileEdit.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\SecondaryController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\PatientModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\MainController.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\TechnicianModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\EditTask.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Entity\Patient.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\login\OAuthCompletedCallback.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\ViewTask.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\HistoryDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\Operation.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\login\OAuthType.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\SystemInfo.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\App.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\module-info.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Model\FullTaskModel.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\TaskDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\Controller\doctor\Predict.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\PatientDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\DoctorDTO.java
+C:\Users\hntan\IdeaProjects\BraintumorFX\Braintumor\src\main\java\org\fpt\DTO\tTaskDTO.java

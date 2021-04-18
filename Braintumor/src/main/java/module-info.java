@@ -13,6 +13,7 @@ module org.fpt {
 
     opens org.fpt to javafx.fxml;
     opens org.fpt.login to javafx.fxml;
+    opens org.fpt.Controller.technician to javafx.fxml;
     exports org.fpt ;
 
 }

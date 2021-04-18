@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" stylesheets="../css/javaFX.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.technician.Home">
+<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" stylesheets="..../css/javaFX.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.technician.Home">
    <children>
       <VBox>
          <children>
@@ -28,12 +28,12 @@
                   </Text>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="7.0" prefWidth="102.0" styleClass="btnNormal" stylesheets="@/css/javaFX.css" text="Profile">
+                        <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="7.0" prefWidth="102.0" styleClass="btnNormal" stylesheets="@../css/javaFX.css" text="Profile">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="btnLogout" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onLogout" styleClass="btnNotNormal" stylesheets="@/css/javaFX.css" text="Logout" textAlignment="CENTER" />
+                        <Button fx:id="btnLogout" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onLogout" styleClass="btnNotNormal" stylesheets="@../css/javaFX.css" text="Logout" textAlignment="CENTER" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -51,7 +51,7 @@
       </VBox>
       <VBox>
          <children>
-            <GridPane prefHeight="50.0" stylesheets="@/css/javaFX.css">
+            <GridPane prefHeight="50.0" stylesheets="@../css/javaFX.css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="983.7333374023438" minWidth="10.0" prefWidth="758.6666870117188" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="613.6000366210938" minWidth="10.0" prefWidth="481.33331298828125" />
@@ -62,13 +62,13 @@
                <children>
                   <HBox>
                      <children>
-                        <TextField fx:id="tfSearch" styleClass="txtSearch" stylesheets="@/css/javaFX.css" />
-                        <Button fx:id="btnSearch" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#onTaskSearch" styleClass="btnSearch" stylesheets="@/css/javaFX.css" text="Search" />
+                        <TextField fx:id="tfSearch" styleClass="txtSearch" stylesheets="@../css/javaFX.css" />
+                        <Button fx:id="btnSearch" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#onTaskSearch" styleClass="btnSearch" stylesheets="@../css/javaFX.css" text="Search" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="482.0" GridPane.columnIndex="1">
                      <children>
-                        <Button fx:id="btnAddPatient" mnemonicParsing="false" onMouseClicked="#addPatient" styleClass="btnNotNormal" stylesheets="@/css/javaFX.css" text="Add Patient" />
+                        <Button fx:id="btnAddPatient" mnemonicParsing="false" onMouseClicked="#addPatient" styleClass="btnNotNormal" stylesheets="@../css/javaFX.css" text="Add Patient" />
                      </children>
                   </HBox>
                </children>
@@ -76,7 +76,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </GridPane>
-            <TableView fx:id="tvTask" maxHeight="354.4" minHeight="354.4" prefHeight="354.4" stylesheets="@/css/javaFX.css">
+            <TableView fx:id="tvTask" maxHeight="354.4" minHeight="354.4" prefHeight="354.4" stylesheets="@../css/javaFX.css">
                <columns>
                   <TableColumn id="txPatientElement" fx:id="colTaskNo" prefWidth="57.06665089925173" text="No" />
                   <TableColumn id="txPatientElement" fx:id="colTaskPatientName" prefWidth="372.2667465209961" text="Patient Name" />
@@ -89,7 +89,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </TableView>
-            <Pagination fx:id="paTask" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="45.0" prefWidth="668.0" stylesheets="@/css/javaFX.css">
+            <Pagination fx:id="paTask" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="45.0" prefWidth="668.0" stylesheets="@../css/javaFX.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

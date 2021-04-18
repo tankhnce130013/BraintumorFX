@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainview" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: f3fdff;" stylesheets="@../css/javaFX.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.login.Login">
+<VBox fx:id="mainview" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: f3fdff;" stylesheets="@..../css/javaFX.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.login.Login">
    <children>
       <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2699FB;">
          <children>
-            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@..../css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" glyphName="MINUS" onMouseClicked="#onMinimize" size="15" />
                </graphic>
@@ -21,7 +21,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@..../css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" glyphName="CLOSE" onMouseClicked="#onclose" size="15" />
                </graphic>

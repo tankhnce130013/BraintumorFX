@@ -48,7 +48,7 @@ public class MainController implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(
                         getClass().getResource(
-                                "/fxml/TechnicianMain.fxml"
+                                "/fxml/TechnicianHome.fxml"
                         )
                 );
                 VBox pane = (VBox) loader.load();

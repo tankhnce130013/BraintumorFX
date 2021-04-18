@@ -1,3 +1,4 @@
-org\fpt\Main.class
+org\fpt\SecondaryController.class
 module-info.class
-org\fpt\SystemInfo.class
+org\fpt\App.class
+org\fpt\PrimaryController.class

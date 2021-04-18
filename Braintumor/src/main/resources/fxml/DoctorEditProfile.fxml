@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.doctor.ProfileEdit.ProfileEdit">
+<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.ProfileEdit">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="486.0" styleClass="box-shadow" stylesheets="@../css/doctor/ProfileEdit.css">
+      <VBox alignment="TOP_CENTER" prefHeight="486.0" styleClass="box-shadow" stylesheets="@/css/doctor/ProfileEdit.css">
          <children>
             <HBox alignment="CENTER" prefHeight="65.0" prefWidth="939.0" styleClass="top-box">
                <children>
@@ -24,7 +24,7 @@
                   <Insets bottom="14.0" />
                </VBox.margin>
             </HBox>
-            <GridPane hgap="20.0" prefHeight="283.0" prefWidth="840.0" stylesheets="@../css/doctor/Profile.css">
+            <GridPane hgap="20.0" prefHeight="283.0" prefWidth="840.0" stylesheets="@/css/doctor/Profile.css">
                <columnConstraints>
                   <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="1063.5333129882813" minWidth="10.0" prefWidth="198.46669921875" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="1029.6666778564452" minWidth="10.0" prefWidth="543.53330078125" />

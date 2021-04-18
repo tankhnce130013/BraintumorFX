@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff; -fx-border-color: #2699FB; -fx-border-width: 0 5 5 5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.doctor.Predict.Predict">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff; -fx-border-color: #2699FB; -fx-border-width: 0 5 5 5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.Predict">
    <children>
       <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2699FB;">
          <children>
-            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@/css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" glyphName="CHAIN" />
                </graphic>
@@ -24,7 +24,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@/css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" />
                </graphic>

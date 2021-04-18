@@ -14,19 +14,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1239.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.technician.Add.Add">
+<VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1239.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.technician.Add">
    <children>
-      <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#backToMain" styleClass="btnNormal" stylesheets="@../css/doctor/ProfileEdit.css" text="Back">
+      <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#backToMain" styleClass="btnNormal" stylesheets="@/css/doctor/ProfileEdit.css" text="Back">
          <VBox.margin>
             <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
       </Button>
-      <VBox prefHeight="659.0" prefWidth="1239.0" style="-fx-background-color: #fff;" stylesheets="@../css/doctor/ProfileEdit.css">
+      <VBox prefHeight="659.0" prefWidth="1239.0" style="-fx-background-color: #fff;" stylesheets="@/css/doctor/ProfileEdit.css">
          <children>
             <Text id="pagetitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Patient" />
             <HBox prefWidth="1239.0">
                <children>
-                  <GridPane hgap="20.0" prefHeight="537.0" prefWidth="824.0" style="-fx-background-color: #fff;" stylesheets="@../css/doctor/Profile.css">
+                  <GridPane hgap="20.0" prefHeight="537.0" prefWidth="824.0" style="-fx-background-color: #fff;" stylesheets="@/css/doctor/Profile.css">
                      <columnConstraints>
                         <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="1063.5333129882813" minWidth="10.0" prefWidth="250.39999084472657" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1029.6666778564452" minWidth="10.0" prefWidth="536.0000091552736" />

@@ -1,5 +1,6 @@
 package org.fpt.login;
 
+import org.fpt.Controller.doctor.MainController;
 import org.fpt.Entity.Doctor;
 import org.fpt.Entity.Technician;
 import org.fpt.Model.DoctorModel;
@@ -168,7 +169,7 @@ public abstract class OAuthAuthenticator {
                                 Parent root;
                                 root = fxmlLoader.load();
 
-                                main.java.sample.technician.Main.MainController fooController = fxmlLoader.getController();
+                                org.fpt.Controller.technician.MainController fooController = fxmlLoader.getController();
                                 fooController.getData(email);
                                 Stage stage = new Stage();
                                 stage.setTitle("Home");

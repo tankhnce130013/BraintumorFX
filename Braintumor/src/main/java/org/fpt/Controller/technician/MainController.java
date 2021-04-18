@@ -53,8 +53,7 @@ public class MainController implements Initializable {
                 );
                 VBox pane = (VBox) loader.load();
                 mainView.getChildren().setAll(pane);
-                //org.fpt.Controller.technician.Home fooController = loader.getController();
-                org.fpt.Controller.technician.Home fooController = new Home();
+                org.fpt.Controller.technician.Home fooController = loader.getController();
                 fooController.getData(email);
             } catch (Exception e){
                 e.printStackTrace();

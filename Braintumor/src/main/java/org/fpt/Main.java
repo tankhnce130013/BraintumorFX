@@ -20,27 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-            primaryStage.setTitle("Login");
-            primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.getIcons().add(new Image("/Image/Brain.png"));
-            //grab your root here
-            root.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            });
-            //move around here
-            root.setOnMouseDragged(event -> {
-                primaryStage.setX(event.getScreenX() - xOffset);
-                primaryStage.setY(event.getScreenY() - yOffset);
-            });
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
 
     public static void main(String[] args) {

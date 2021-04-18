@@ -122,7 +122,7 @@ public class Profile implements Initializable {
                     txtDateOfBirth.setText(doc.getBirthdate());
                     txtSpecialty.setText(doc.getSpecialist());
                     //Creating a graphic (image)
-                    Image imgDoc = new Image("/Image/a4040890a14cf4de8ecea56265f66cf7.png");
+                    Image imgDoc = new Image(getClass().getResource("/Image/a4040890a14cf4de8ecea56265f66cf7.png").toString());
                     ImageView viewDoc = new ImageView(imgDoc);
                     viewDoc.setFitHeight(189);
                     viewDoc.setPreserveRatio(true);
@@ -134,7 +134,7 @@ public class Profile implements Initializable {
                     txtDateOfBirth.setText(technicianDTO.getBirthdate());
                     txtSpecialty.setText(technicianDTO.getSpecialist());
                     //Creating a graphic (image)
-                    Image imgTech = new Image("/Image/technical-37-453357.webp");
+                    Image imgTech = new Image(getClass().getResource("/Image/a4040890a14cf4de8ecea56265f66cf7.png").toString());
                     ImageView viewTech = new ImageView(imgTech);
                     viewTech.setFitHeight(189);
                     viewTech.setPreserveRatio(true);

@@ -167,7 +167,6 @@ public abstract class OAuthAuthenticator {
                                     e.printStackTrace();
 
                                 }
-
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/TechnicianMain.fxml"));
                                 Parent root;
                                 root = fxmlLoader.load();
@@ -195,6 +194,7 @@ public abstract class OAuthAuthenticator {
 
                                 Stage stage1 = (Stage) btn.getScene().getWindow();
                                 stage1.close();
+
                             } else {
                                 closeStage();
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

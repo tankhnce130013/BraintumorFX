@@ -8,6 +8,6 @@ module org.fpt {
     requires okhttp3;
 
     opens org.fpt to javafx.fxml;
-    exports org.fpt to javafx.fxml;
+    exports org.fpt ;
 
 }

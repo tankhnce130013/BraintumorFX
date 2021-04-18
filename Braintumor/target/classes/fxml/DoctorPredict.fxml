@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2699FB;">
          <children>
-            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@....../css/javaFX.css">
+            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@../css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" glyphName="CHAIN" />
                </graphic>
@@ -24,7 +24,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@....../css/javaFX.css">
+            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@../css/javaFX.css">
                <graphic>
                   <FontAwesomeIconView id="iconmenu" />
                </graphic>

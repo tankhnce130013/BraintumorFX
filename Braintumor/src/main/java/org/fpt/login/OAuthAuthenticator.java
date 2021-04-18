@@ -167,6 +167,7 @@ public abstract class OAuthAuthenticator {
                                     e.printStackTrace();
 
                                 }
+
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/TechnicianMain.fxml"));
                                 Parent root;
                                 root = fxmlLoader.load();

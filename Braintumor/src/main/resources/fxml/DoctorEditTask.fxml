@@ -62,7 +62,7 @@
             <Insets bottom="20.0" top="30.0" />
          </VBox.margin>
       </HBox>
-      <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@/css/doctor/EditTask.css">
+      <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@../css/doctor/EditTask.css">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

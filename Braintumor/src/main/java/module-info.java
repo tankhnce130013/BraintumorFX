@@ -6,8 +6,13 @@ module org.fpt {
     requires javafx.web;
     requires javafx.swing;
     requires okhttp3;
+    requires de.jensd.fx.glyphs.commons;
+    requires de.jensd.fx.glyphs.materialdesignicons;
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires javafx.graphicsEmpty;
 
     opens org.fpt to javafx.fxml;
-    exports org.fpt to javafx.fxml;
+    opens org.fpt.login to javafx.fxml;
+    exports org.fpt ;
 
 }

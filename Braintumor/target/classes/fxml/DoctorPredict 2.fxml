@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff; -fx-border-color: #2699FB; -fx-border-width: 0 5 5 5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.Predict">
+   <children>
+      <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2699FB;">
+         <children>
+            <Button fx:id="btnMinimize" mnemonicParsing="false" onMouseClicked="#onMinimize" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+               <graphic>
+                  <FontAwesomeIconView id="iconmenu" glyphName="CHAIN" />
+               </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onclose" styleClass="headerButton" stylesheets="@../css/javaFX.css">
+               <graphic>
+                  <FontAwesomeIconView id="iconmenu" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" stylesheets="@../css/doctor/Predict.css">
+         <children>
+            <ImageView id="imgAvatar" fx:id="imgTumor" fitHeight="316.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox alignment="CENTER">
+               <children>
+                  <Text id="txtSubTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Type of tumor">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ComboBox fx:id="cbType" prefWidth="388.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="58.0" />
+               </VBox.margin>
+            </HBox>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox>
+                     <children>
+                        <Button fx:id="btnOk" mnemonicParsing="false" onMouseClicked="#onSave" styleClass="btnNormal" text="Ok" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1">
+                     <children>
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onMouseClicked="#onCancel" styleClass="btnNotNormal" text="Cancel" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

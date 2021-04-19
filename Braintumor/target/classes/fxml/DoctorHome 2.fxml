@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" stylesheets="../css/javaFX.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.HomeController">
+   <children>
+      <VBox fx:id="mainView">
+         <children>
+            <VBox>
+               <children>
+                  <Text fx:id="txtWel" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
+                     <font>
+                        <Font name="Arial Bold" size="50.0" />
+                     </font></Text>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Button fx:id="btnProfile" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="7.0" prefWidth="102.0" styleClass="btnNormal" stylesheets="@../css/javaFX.css" text="Profile">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="btnLogout" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onLogout" styleClass="btnNotNormal" stylesheets="@../css/javaFX.css" text="Logout" textAlignment="CENTER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </VBox.margin>
+            </VBox>
+            <TabPane style="-fx-background-color: #fff;" stylesheets="@../css/javaFX.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Task">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <HBox prefHeight="43.2" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <TextField fx:id="tfTaskSearch" styleClass="txtSearch" stylesheets="@../css/javaFX.css" />
+                                    <Button fx:id="btnTaskSearch" mnemonicParsing="false" onMouseClicked="#onTaskSearch" styleClass="btnSearch" stylesheets="@../css/javaFX.css" text="Search" />
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="tvTask" layoutY="80.0" maxHeight="377.0" minHeight="271.0" prefHeight="348.0" prefWidth="1240.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                                 <columns>
+                                    <TableColumn id="txPatientElement" fx:id="colTaskNo" prefWidth="57.06665089925173" text="No" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskPatientName" prefWidth="463.1999855041504" text="Patient Name" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskGender" prefWidth="153.60003662109375" text="Gender" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskBirthDate" prefWidth="160.800048828125" text="Birth date" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskDate" prefWidth="151.199951171875" text="Date" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskStatus" prefWidth="126.39996337890625" text="Status" />
+                                    <TableColumn id="txPatientElement" fx:id="colTaskAction" prefWidth="123.199951171875" text="Action" />
+                                 </columns>
+                              </TableView>
+                              <Pagination fx:id="paTask" layoutY="87.0" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="434.0" prefWidth="1240.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pagination>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab text="History">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <HBox prefHeight="43.2" prefWidth="1240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <TextField fx:id="tfHisSearch" styleClass="txtSearch" stylesheets="@../css/javaFX.css" />
+                                    <Button fx:id="btnHisSearch" mnemonicParsing="false" onMouseClicked="#onHistorySearch" styleClass="btnSearch" stylesheets="@../css/javaFX.css" text="Search" />
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="tvHis" layoutY="81.0" maxHeight="377.0" minHeight="271.0" prefHeight="346.0" prefWidth="1240.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                                 <columns>
+                                    <TableColumn id="txPatientElement" fx:id="colHisNo" prefWidth="57.06665089925173" text="No" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisPatientName" prefWidth="463.1999855041504" text="Patient Name" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisGender" prefWidth="153.60003662109375" text="Gender" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisBirthDate" prefWidth="160.800048828125" text="Birth date" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisDate" prefWidth="151.199951171875" text="Date" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisStatus" prefWidth="126.39996337890625" text="Status" />
+                                    <TableColumn id="txPatientElement" fx:id="colHisAction" prefWidth="123.199951171875" text="Action" />
+                                 </columns>
+                              </TableView>
+                              <Pagination fx:id="paHis" layoutY="76.0" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="446.0" prefWidth="1240.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pagination>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

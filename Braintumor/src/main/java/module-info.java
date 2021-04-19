@@ -10,6 +10,7 @@ module org.fpt {
     requires de.jensd.fx.glyphs.materialdesignicons;
     requires de.jensd.fx.glyphs.fontawesome;
     requires javafx.graphicsEmpty;
+    //requires kotlin.runtime;
 
     opens org.fpt to javafx.fxml;
     opens org.fpt.login to javafx.fxml;
@@ -20,5 +21,4 @@ module org.fpt {
     opens org.fpt.Entity to javafx.base;
 
     exports org.fpt ;
-
 }

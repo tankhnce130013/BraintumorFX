@@ -68,6 +68,11 @@
             <artifactId>okhttp</artifactId>
             <version>4.9.1</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.jetbrains.kotlin</groupId>-->
+<!--            <artifactId>kotlin-runtime</artifactId>-->
+<!--            <version>1.0.1-2</version>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -116,6 +121,12 @@
                 <version>0.0.3</version>
                 <configuration>
                     <mainClass>org.fpt.App</mainClass>
+                    <launcher>launch.sh</launcher>
+                    <compress>2</compress>
+                    <jlinkZipName>fpt.brain</jlinkZipName>
+                    <jlinkImageName>fpt.brain</jlinkImageName>
+                    <noManPages>true</noManPages>
+                    <noHeaderFiles>true</noHeaderFiles>
                 </configuration>
             </plugin>
         </plugins>

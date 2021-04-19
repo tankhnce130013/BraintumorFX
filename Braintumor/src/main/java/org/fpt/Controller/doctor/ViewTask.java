@@ -181,7 +181,7 @@ public class ViewTask implements Initializable {
         int id = 0;
         // file unzip
         System.out.println(fullTaskDTO.getFolderName());
-        File selectedDirectory = new File("D:\\FPT-University\\Do-An-GitHub\\GroupDoAn\\Frontend\\BrainTumor\\Data\\Doctor\\NguyenDongHung_41c10c1077b4\\"+ fullTaskDTO.getFolderName());
+        File selectedDirectory = new File("/Users/macbookair/Desktop/BrainTumor/unzip/"+ fullTaskDTO.getFolderName());
         System.out.println("File length " + selectedDirectory.exists());
         if (selectedDirectory.exists()){
             File[] files = selectedDirectory.listFiles();
@@ -227,7 +227,7 @@ public class ViewTask implements Initializable {
 
 
                         Label lblCheck =  new Label("");
-                        Image imgDoc = new Image("/Image/1500737-middle.png");
+                        Image imgDoc = new Image(getClass().getResource("/Image/1500737-middle.png").toString());
                         ImageView viewDoc = new ImageView(imgDoc);
                         viewDoc.setFitHeight(40);
                         viewDoc.setPreserveRatio(true);
@@ -249,7 +249,7 @@ public class ViewTask implements Initializable {
                                 Stage stage = new Stage();
                                 stage.setTitle("Predict");
                                 stage.initStyle(StageStyle.UNDECORATED);
-                                stage.getIcons().add(new Image("/Image/Brain.png"));
+                                stage.getIcons().add(new Image(getClass().getResource("/Image/Brain.png").toString()));
                                 //grab your root here
                                 root.setOnMousePressed(e -> {
                                     xOffset = e.getSceneX();

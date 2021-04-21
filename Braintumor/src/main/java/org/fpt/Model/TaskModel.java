@@ -300,6 +300,45 @@ public class TaskModel {
         }
         System.out.println("Task updated successfully");
     }
+    public ArrayList<Task>  getAllPendingTaskByDoctorUUID(UUID doctorUUID){
+        Connection connection = c.JdbcConnection();
+        Statement stmt = null;
+        //UUID id = UUID.randomUUID();
+        try{
+            ArrayList<Task> tasks = new ArrayList<>();
+            stmt = connection.createStatement();
+            String sql = "SELECT * FROM task WHERE id_doctor = '"+doctorUUID.toString()+"' and predict_status='Pending';";
+            ResultSet rs = stmt.executeQuery(sql);
+            while  (rs.next()){
+                String stringid = rs.getString("id");
+                UUID id = UUID.fromString(stringid);
+                String stringpid = rs.getString("id_patient");
+                UUID pid = UUID.fromString(stringpid);
+                String stringtid = rs.getString("id_technician");
+                UUID tid = UUID.fromString(stringtid);
+                String stringdid = rs.getString("id_doctor");
+                UUID did = UUID.fromString(stringdid);
+                String folder_name = rs.getString("folder_name");
+                String upload_date = rs.getString("upload_date");
+                String predict_date = rs.getString("predict_date");
+                String upload_status = rs.getString("upload_status");
+                String predict_status = rs.getString("predict_status");
+                String result = rs.getString("result");
+                String note = rs.getString("note");
+                String status = rs.getString("status");
+                Task task = new Task(id, pid, tid, did, folder_name, upload_date, predict_date, upload_status, predict_status, result, note, status);
+                tasks.add(task);
+            }
+            stmt.close();
+            connection.close();
+            //connection.commit();
+            return tasks;
+        } catch(Exception e){
+            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            //System.exit(0);
+        }
+        return null;
+    }
     public UUID getPatientID(UUID ID){
         Connection connection = c.JdbcConnection();
         Statement stmt = null;

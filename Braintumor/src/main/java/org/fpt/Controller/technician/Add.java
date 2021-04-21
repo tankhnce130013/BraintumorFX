@@ -105,10 +105,10 @@ public class Add implements Initializable {
             String formattedDate = myDateObj.format(myFormatObj);
             System.out.println("After formatting: " + formattedDate);
 
-            File theDir = new File("C:\\program\\brain-tumor\\");
-            if (!theDir.exists()){
-                theDir.mkdirs();
-            }
+//            File theDir = new File("C:\\program\\brain-tumor\\");
+//            if (!theDir.exists()){
+//                theDir.mkdirs();
+//            }
 
             nameFileZip = patientName+"-"+formattedDate;
             String fileName = "C:\\program\\brain-tumor\\" + nameFileZip + ".zip";

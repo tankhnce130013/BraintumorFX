@@ -2,6 +2,7 @@ package org.fpt.login;
 
 import org.fpt.Controller.doctor.MainController;
 import org.fpt.Entity.Doctor;
+import org.fpt.Entity.Task;
 import org.fpt.Entity.Technician;
 import org.fpt.Model.DoctorModel;
 import org.fpt.Model.Operation;
@@ -25,8 +26,11 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import org.fpt.Model.TaskModel;
 import org.json.JSONObject;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -45,14 +49,14 @@ public abstract class OAuthAuthenticator {
     private final String clientID;
     private final String redirectUri;
     private final String clientSecret;
-    private  static String signInMail = "" ;
+    private static String signInMail = "";
     private Stage stage;
 
     private double xOffset = 0;
     private double yOffset = 0;
 
 
-    public OAuthAuthenticator (String clientID, String redirectUri, String clientSecret) {
+    public OAuthAuthenticator(String clientID, String redirectUri, String clientSecret) {
         this.clientID = clientID;
         this.redirectUri = redirectUri;
         this.clientSecret = clientSecret;
@@ -66,7 +70,7 @@ public abstract class OAuthAuthenticator {
         return clientSecret;
     }
 
-    public String getRedirectUri(){
+    public String getRedirectUri() {
         return redirectUri;
     }
 
@@ -108,7 +112,7 @@ public abstract class OAuthAuthenticator {
                         int index = operation.checkLogin(email);
 
                         try {
-                            if (index == 1){
+                            if (index == 1) {
                                 signInMail = email;
                                 //Get connection to Sharing file folder
                                 String command = "cmd.exe /c NET USE E: \\\\TECHNICIAN\\Data  /u:hntan1769@mail.com ZtenQw@1769";
@@ -119,14 +123,14 @@ public abstract class OAuthAuthenticator {
                                 } catch (IOException e) {
                                     // TODO Auto-generated catch block
                                     e.printStackTrace();
-
                                 }
+
                                 //start autobot
                                 Runnable runnable = new autoUnzipRunnable(); // or an anonymous class, or lambda...
-
                                 Thread thread = new Thread(runnable);
                                 thread.start();
 
+                                //load FXML
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/DocterMain.fxml"));
                                 Parent root;
                                 root = fxmlLoader.load();
@@ -155,7 +159,7 @@ public abstract class OAuthAuthenticator {
 
                                 Stage stage1 = (Stage) btn.getScene().getWindow();
                                 stage1.close();
-                            } else if( index == 2){
+                            } else if (index == 2) {
                                 //Get connection to Sharing file folder
                                 String command = "cmd.exe /c NET USE E: \\\\TECHNICIAN\\Data  /u:hntan1769@mail.com ZtenQw@1769";
                                 System.out.println(command);
@@ -203,8 +207,8 @@ public abstract class OAuthAuthenticator {
                                 alert.setContentText("Wrong email !!!");
 
                                 Optional<ButtonType> result = alert.showAndWait();
-                                if (result.isPresent()){
-                                    if (result.get() == ButtonType.OK){
+                                if (result.isPresent()) {
+                                    if (result.get() == ButtonType.OK) {
                                         // ... user chose OK
                                     }
                                 }
@@ -214,7 +218,7 @@ public abstract class OAuthAuthenticator {
 
                             closeStage();
 
-                        } catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -228,14 +232,14 @@ public abstract class OAuthAuthenticator {
                         alert.setContentText("Wrong email !!!");
 
                         Optional<ButtonType> result = alert.showAndWait();
-                        if (result.isPresent()){
-                            if (result.get() == ButtonType.OK){
+                        if (result.isPresent()) {
+                            if (result.get() == ButtonType.OK) {
                                 // ... user chose OK
                             }
                         }
 
                     }
-                }catch (NullPointerException e){
+                } catch (NullPointerException e) {
                 }
             }
         });
@@ -276,66 +280,176 @@ public abstract class OAuthAuthenticator {
         stage.show();
     }
 
-public class autoUnzipRunnable implements Runnable {
-    DoctorModel doctorModel =new DoctorModel();
-    public void run(){
-        Doctor doctor;
-        System.out.println(signInMail);
-        if(signInMail != ""){
-            doctor = doctorModel.loadEntityDoctor(signInMail);
-            String uuid= doctor.getId().toString();
-            int lastSlash = uuid.lastIndexOf("-");
+    /*
+        do checking doctor change PC for work
+        check is name of PC is changed
+        if changed do re-storage data from storage folder at sharing folder in Mapping network
+     */
 
-            String doctorInfo = doctor.getFullName().trim().replaceAll("\\s+", "")+"_"+uuid.substring(lastSlash+1);
-            File folder = new File("\\\\TECHNICIAN\\Data\\Technician\\Doctor\\"+doctorInfo);
-            String outPath = "Data/Doctor/"+doctorInfo;
-            String storagePath = "Data/Storage/"+doctorInfo+"/";
 
-            while (true){
+    public class autoUnzipRunnable implements Runnable {
+        DoctorModel doctorModel = new DoctorModel();
+
+        public void run() {
+            Doctor doctor;
+            System.out.println(signInMail);
+            if (signInMail != "") {
+                //Setting up info
+                // Checking PC Name
+                DoctorModel doctorModel = new DoctorModel();
+                doctor = doctorModel.loadEntityDoctor(signInMail);
+                String curHostName = "";
+                String cmd = "cmd.exe /c cmd /k hostname";
                 try {
-                    File storageDir = new File(storagePath);
-                    if(!storageDir.isDirectory()){
-                        storageDir.mkdirs();
+                    Process p = Runtime.getRuntime().exec(cmd);
+                    BufferedReader BR = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                    String l;
+                    while ((l = BR.readLine()) != null) {
+                        curHostName = l;
                     }
-
-                    File[] files = folder.listFiles();
-                    for (File file : files) {
-                       int lastDot =file.getName().lastIndexOf(".");
-                       String fileExtension = file.getName().substring(lastDot);
-                        if (file.isFile() && fileExtension.equalsIgnoreCase(".zip")) {
-                            System.out.println(file.getName());
-                            unzipDataFromDir(file.getPath(),outPath);
-                            CutFile(file.getPath(),storagePath);
-                        }else {
-                            System.out.println("AUTO SCanning : No New File.zip");
-                        }
+                    //checking is new PC or Not
+                    if (!doctor.getIp().equalsIgnoreCase(curHostName)) {
+                        //do restorage data from unfinished task
+                        RestorageTask(doctor);
                     }
-                    Thread.sleep(5000);
-                } catch (InterruptedException | IOException e) {
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
                     e.printStackTrace();
+                }
+                //DO update PC to SQL
+                doctorModel.updateDoctorIP(doctor.getEmail(),curHostName);
+                // preparing data for AUTObot
+                String uuid = doctor.getId().toString();
+                int lastSlash = uuid.lastIndexOf("-");
+                String doctorInfo = doctor.getFullName().trim().replaceAll("\\s+", "") + "_" + uuid.substring(lastSlash + 1);
+                File folder = new File("\\\\TECHNICIAN\\Data\\Technician\\Doctor\\" + doctorInfo);
+                String outPath = "Data/Doctor/" + doctorInfo;
+                String storagePath = "\\\\TECHNICIAN\\Data\\Storage\\" + doctorInfo + "\\";
+
+                while (true) {
+                    try {
+                        File storageDir = new File(storagePath);
+                        if (!storageDir.isDirectory()) {
+                            storageDir.mkdirs();
+                        }
+
+                        File[] files = folder.listFiles();
+                        for (File file : files) {
+                            int lastDot = file.getName().lastIndexOf(".");
+                            String fileExtension = file.getName().substring(lastDot);
+                            if (file.isFile() && fileExtension.equalsIgnoreCase(".zip")) {
+                                unzipDataFromDir(file.getPath(), outPath);
+                                CutFile(file.getPath(), storagePath);
+                            }
+                        }
+                        System.out.println("AUTO SCanning : No New File.zip");
+                        Thread.sleep(5000);
+                    } catch (InterruptedException | IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
-    }
 
-    public void CutFile(String sent_path, String recive_path) {
-
-        String command = "cmd.exe /c move  " + sent_path + "  " + recive_path ;
-        System.out.println(command);
-        try {
-            Process p = Runtime.getRuntime().exec(command);
-
-            BufferedReader BR = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String l;
-            while ((l = BR.readLine()) != null) {
-                System.out.print(l);
+        public void RestorageTask(Doctor doctor) throws IOException {
+            TaskModel taskModel = new TaskModel();
+            ArrayList<Task> tasks = taskModel.getAllPendingTaskByDoctorUUID(doctor.getId());
+            //check is empty
+            if (!tasks.isEmpty()) {
+                //do unzip
+                String uuid = doctor.getId().toString();
+                int lastSlash = uuid.lastIndexOf("-");
+                String doctorInfo = doctor.getFullName().trim().replaceAll("\\s+", "") + "_" + uuid.substring(lastSlash + 1);
+                File folder = new File("\\\\TECHNICIAN\\Data\\Storage\\" + doctorInfo + "\\");
+                String folder_path = "\\\\TECHNICIAN\\Data\\Storage\\" + doctorInfo + "\\";
+                String outPath = "Data/Doctor/" + doctorInfo;
+                String storagePath = "\\\\TECHNICIAN\\Data\\Storage\\" + doctorInfo + "\\";
+                for (Task task : tasks) {
+                    File zipFile = new File(folder_path+task.getFolderName());
+                    if (zipFile.exists()) {
+                        unzipDataFromDir(folder_path, outPath);
+                    }
+                }
             }
-            p.destroy();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-
         }
+
+        public void CutFile(String sent_path, String recive_path) {
+
+            String command = "cmd.exe /c move  " + sent_path + "  " + recive_path;
+            System.out.println(command);
+            try {
+                Process p = Runtime.getRuntime().exec(command);
+
+                BufferedReader BR = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String l;
+                while ((l = BR.readLine()) != null) {
+                    System.out.print(l);
+                }
+                p.destroy();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+
+            }
+        }
+
+        public File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+            File destFile = new File(destinationDir, zipEntry.getName());
+
+            String destDirPath = destinationDir.getCanonicalPath();
+            String destFilePath = destFile.getCanonicalPath();
+
+            if (!destFilePath.startsWith(destDirPath + File.separator)) {
+                throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+            }
+
+            return destFile;
+        }
+
+        private void unzipDataFromDir(String dirName, String pathOut) throws IOException {
+            // file zip
+//        String dirName      = "/Users/macbookair/Desktop/BrainTumor/zip/"+ fullTaskDTO.getFolderName() +".zip";
+            // file unzip
+//        File destDir        = new File("/Users/macbookair/Desktop/BrainTumor/unzip/");
+
+            File destDir = new File(pathOut);
+            if (!destDir.isDirectory()) {
+                destDir.mkdirs();
+            }
+            if (destDir.exists()) {
+                byte[] buffer = new byte[1024];
+                ZipInputStream zis = new ZipInputStream(new FileInputStream(dirName));
+                ZipEntry zipEntry = zis.getNextEntry();
+                while (zipEntry != null) {
+                    while (zipEntry != null) {
+                        File newFile = newFile(destDir, zipEntry);
+                        if (zipEntry.isDirectory()) {
+                            if (!newFile.isDirectory() && !newFile.mkdirs()) {
+                                throw new IOException("Failed to create directory " + newFile);
+                            }
+                        } else {
+                            // fix for Windows-created archives
+                            File parent = newFile.getParentFile();
+                            if (!parent.isDirectory() && !parent.mkdirs()) {
+                                throw new IOException("Failed to create directory " + parent);
+                            }
+                            // write file content
+                            FileOutputStream fos = new FileOutputStream(newFile);
+                            int len;
+                            while ((len = zis.read(buffer)) > 0) {
+                                fos.write(buffer, 0, len);
+                            }
+                            fos.close();
+                        }
+                        zipEntry = zis.getNextEntry();
+                    }
+                }
+                zis.closeEntry();
+                zis.close();
+            }
+        }
+
+
     }
 
     public File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
@@ -351,20 +465,20 @@ public class autoUnzipRunnable implements Runnable {
         return destFile;
     }
 
-    private void unzipDataFromDir(String dirName,String pathOut) throws IOException {
+    private void unzipDataFromDir(String dirName, String pathOut) throws IOException {
         // file zip
 //        String dirName      = "/Users/macbookair/Desktop/BrainTumor/zip/"+ fullTaskDTO.getFolderName() +".zip";
         // file unzip
 //        File destDir        = new File("/Users/macbookair/Desktop/BrainTumor/unzip/");
 
         File destDir = new File(pathOut);
-        if(!destDir.isDirectory()){
+        if (!destDir.isDirectory()) {
             destDir.mkdirs();
         }
-        if (destDir.exists()){
-            byte[] buffer       = new byte[1024];
-            ZipInputStream zis  = new ZipInputStream(new FileInputStream(dirName));
-            ZipEntry zipEntry   = zis.getNextEntry();
+        if (destDir.exists()) {
+            byte[] buffer = new byte[1024];
+            ZipInputStream zis = new ZipInputStream(new FileInputStream(dirName));
+            ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
                 while (zipEntry != null) {
                     File newFile = newFile(destDir, zipEntry);
@@ -395,9 +509,6 @@ public class autoUnzipRunnable implements Runnable {
     }
 
 
-
-}
-
     abstract String getWebUrl();
 
     abstract String getApiTokenUrl();
@@ -419,7 +530,7 @@ public class autoUnzipRunnable implements Runnable {
     }
 
     public JSONObject getJsonData() {
-        if(gotData) {
+        if (gotData) {
             return accessedJsonData;
         } else {
             return null;
@@ -432,7 +543,7 @@ public class autoUnzipRunnable implements Runnable {
     }
 
     private void notifyLoginViewCompleted() {
-        if(gotData) {
+        if (gotData) {
             //LoginView.getInstance().completedOAuthLogin(this);
         }
     }

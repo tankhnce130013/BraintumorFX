@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import org.fpt.Controller.doctor.HomeController;
 import org.fpt.Controller.technician.Home;
 
 import java.net.URL;

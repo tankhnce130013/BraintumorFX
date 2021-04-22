@@ -1,5 +1,6 @@
 package org.fpt.Controller.technician;
 
+import com.jfoenix.controls.JFXDatePicker;
 import org.fpt.DTO.DoctorDTO;
 import org.fpt.DTO.TechnicianDTO;
 import org.fpt.Entity.Doctor;
@@ -34,7 +35,7 @@ public class Add implements Initializable {
     @FXML
     private TextField tfName;
     @FXML
-    private DatePicker dpDateOfBirth;
+    private JFXDatePicker dpDateOfBirth;
     @FXML
     private ComboBox<String> cbGender;
     @FXML

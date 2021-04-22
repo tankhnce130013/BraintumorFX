@@ -201,7 +201,7 @@ public abstract class OAuthAuthenticator {
                                 alert.setTitle("Login fail");
                                 alert.setHeaderText("");
                                 alert.setContentText("Wrong email !!!");
-
+                                mainview.setDisable(false);
                                 Optional<ButtonType> result = alert.showAndWait();
                                 if (result.isPresent()){
                                     if (result.get() == ButtonType.OK){
@@ -236,6 +236,8 @@ public abstract class OAuthAuthenticator {
 
                     }
                 }catch (NullPointerException e){
+                    mainview.setDisable(false);
+                    e.printStackTrace();
                 }
             }
         });

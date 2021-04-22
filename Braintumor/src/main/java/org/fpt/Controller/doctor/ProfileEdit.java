@@ -1,5 +1,6 @@
 package org.fpt.Controller.doctor;
 
+import com.jfoenix.controls.JFXDatePicker;
 import org.fpt.DTO.DoctorDTO;
 import org.fpt.DTO.TechnicianDTO;
 import org.fpt.Model.DoctorModel;
@@ -33,7 +34,7 @@ public class ProfileEdit implements Initializable {
     @FXML
     private ComboBox<String> cbGender;
     @FXML
-    private DatePicker dpDateOfBirth;
+    private JFXDatePicker dpDateOfBirth;
     @FXML
     private TextField tfSpecialty;
     // Error message
@@ -64,7 +65,6 @@ public class ProfileEdit implements Initializable {
     }
 
     private void setDataToDatepicker(String data){
-//        dpDateOfBirth.setValue(LOCAL_DATE("data"));
         String year = "";
         String mounth = "";
         String day = "";

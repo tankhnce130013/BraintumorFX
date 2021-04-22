@@ -56,6 +56,34 @@
     -fx-border-radius: 4;
 }
 
+#tfOutLineDate{
+    -fx-pref-height: 40;
+    -fx-border-color: #50abfb;
+    -fx-background-color: #fff;
+    -fx-border-width: 2;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-border-radius: 4;
+}
+
+#tfDate{
+    -fx-pref-height: 34;
+    /*-fx-border-color: #50abfb;*/
+    -fx-background-color: #fff;
+    -fx-border-width: 2;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-border-radius: 4;
+}
+
+#tfDate .input-line {
+    -fx-background-color: #FFFFFF;
+}
+
+#tfDate .input-focused-line {
+    -fx-background-color: #FFFFFF;
+}
+
 .btnNotNormal {
     -fx-cursor: hand;
     -fx-border-color: #2699FB;

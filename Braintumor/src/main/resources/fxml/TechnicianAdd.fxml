@@ -52,13 +52,13 @@
                         <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth:" GridPane.rowIndex="2" />
                         <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Health insurance:" GridPane.rowIndex="8" />
                         <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Note:" GridPane.rowIndex="10" />
-                        <TextField id="tfInput" fx:id="tfHeathInsurance" promptText="Enter patient health insurance" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField id="tfInput" fx:id="tfHeathInsurance" promptText="Enter patient health insurance. Ex: XX+14 number" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <TextField id="tfInput" fx:id="tfName" prefHeight="54.0" prefWidth="537.0" promptText="Enter patient name" GridPane.columnIndex="1" />
                         <Text id="txtError" fx:id="txtNameError" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Text id="txtError" fx:id="txtHeathInsuranceError" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                         <ComboBox id="tfInput" fx:id="cbGender" prefHeight="40.0" prefWidth="630.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" GridPane.rowIndex="6" />
-                        <TextField id="tfInput" fx:id="tfPhone" prefHeight="54.0" prefWidth="537.0" promptText="Enter patient phone number" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField id="tfInput" fx:id="tfPhone" prefHeight="54.0" prefWidth="537.0" promptText="Phone accept 10 number" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Text id="txtError" fx:id="txtPhoneError" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <TextArea id="tfInput" fx:id="taNote" prefHeight="35.0" prefWidth="446.0" promptText="Extra information" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                         <AnchorPane prefHeight="43.0" prefWidth="602.0" GridPane.columnIndex="1" GridPane.rowIndex="2">

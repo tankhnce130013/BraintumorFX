@@ -63,6 +63,8 @@ public class Add implements Initializable {
     @FXML
     private Text txtHeathInsuranceError;
     @FXML
+    private Text txtDateErr;
+    @FXML
     private VBox mainView;
 
     //Infor
@@ -157,6 +159,7 @@ public class Add implements Initializable {
         boolean isNotError = true;
 
         String nameError = "Name can not be null!";
+        String dateError = "Please choose patient date of birth!";
         String phoneError = "Phone can not be null!";
         String phoneErrorPattern = "Phone number must be 10 - 11 number!";
         String healthError = "Health insurance can not be null!";
@@ -171,6 +174,11 @@ public class Add implements Initializable {
 
         if (name.equalsIgnoreCase("")){
             txtNameError.setText(nameError);
+            isNotError = false;
+        }
+
+        if (dpDateOfBirth.getValue().toString().equalsIgnoreCase("")){
+            txtDateErr.setText(dateError);
             isNotError = false;
         }
 

@@ -54,12 +54,12 @@
 }
 
 #txtTitle{
-    -fx-font-size: 30;
+    -fx-font-size: 20;
     -fx-font-weight: bold;
 }
 
 #txtNormal{
-    -fx-font-size: 30;
+    -fx-font-size: 20;
 }
 
 #txtInTextArea{

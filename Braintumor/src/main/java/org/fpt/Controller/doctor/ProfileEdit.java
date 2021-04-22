@@ -41,6 +41,8 @@ public class ProfileEdit implements Initializable {
     private Text errorName;
     @FXML
     private Text errorSpecialty;
+    @FXML
+    private Text txtDateErr;
     //data
     DoctorDTO doc = new DoctorDTO();
     TechnicianDTO technicianDTO = new TechnicianDTO();
@@ -91,8 +93,13 @@ public class ProfileEdit implements Initializable {
             errorSpecialty.setText("Please enter Doctor's position");
         }
 
+        if (dpDateOfBirth.getValue().toString().equalsIgnoreCase("")){
+            txtDateErr.setText("Please choose patient date of birth!");
+        }
+
         if (!specialty.equalsIgnoreCase("") &&
-            !name.equalsIgnoreCase("")){
+            !name.equalsIgnoreCase("") &&
+                !dpDateOfBirth.getValue().toString().equalsIgnoreCase("")){
             // Add Data to data base
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Alert");

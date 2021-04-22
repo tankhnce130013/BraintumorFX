@@ -45,20 +45,21 @@
                   <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
                   <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" GridPane.rowIndex="4" />
                   <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth:" GridPane.rowIndex="2" />
-                  <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialty:" GridPane.rowIndex="6" />
-                  <TextField id="tfInput" fx:id="tfSpecialty" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <TextField id="tfInput" fx:id="tfName" prefHeight="86.0" prefWidth="570.0" GridPane.columnIndex="1" />
+                  <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Speciality:" GridPane.rowIndex="6" />
+                  <TextField id="tfInput" fx:id="tfSpecialty" promptText="Enter doctor speciality" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField id="tfInput" fx:id="tfName" prefHeight="86.0" prefWidth="570.0" promptText="Enter doctor name" GridPane.columnIndex="1" />
                   <Text id="txtError" fx:id="errorName" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <ComboBox id="tfInput" fx:id="cbGender" prefHeight="40.0" prefWidth="630.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <AnchorPane prefHeight="43.0" prefWidth="602.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <VBox id="tfOutLineDate" AnchorPane.bottomAnchor="2.5999999999999943" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <JFXDatePicker id="tfDate" defaultColor="#50abfb" editable="false" prefHeight="35.0" prefWidth="602.0" />
+                              <JFXDatePicker id="tfDate" fx:id="dpDateOfBirth" defaultColor="#50abfb" prefHeight="35.0" prefWidth="602.0" promptText="Choose doctor date of birth" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
+                  <Text id="txtError" fx:id="txtDateErr" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
                <VBox.margin>
                   <Insets left="30.0" right="30.0" top="20.0" />

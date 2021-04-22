@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         try {
+            Font.getDefault();
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
             primaryStage.setTitle("Login");
             primaryStage.initStyle(StageStyle.UNDECORATED);

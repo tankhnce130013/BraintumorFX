@@ -9,6 +9,7 @@ module org.fpt {
     requires de.jensd.fx.glyphs.materialdesignicons;
     requires de.jensd.fx.glyphs.fontawesome;
     requires okhttp3;
+    requires com.jfoenix;
 
     opens org.fpt to javafx.fxml;
     opens org.fpt.login to javafx.fxml;

@@ -201,11 +201,11 @@ public abstract class OAuthAuthenticator {
                                 alert.setTitle("Login fail");
                                 alert.setHeaderText("");
                                 alert.setContentText("Wrong email !!!");
-                                mainview.setDisable(false);
                                 Optional<ButtonType> result = alert.showAndWait();
                                 if (result.isPresent()){
                                     if (result.get() == ButtonType.OK){
                                         // ... user chose OK
+                                        mainview.setDisable(false);
                                     }
                                 }
                             }
@@ -220,7 +220,6 @@ public abstract class OAuthAuthenticator {
                     }
 
                     if (engine.getLocation().contains("https://accounts.google.com/signin/oauth/error")) {
-                        mainview.setDisable(false);
                         closeStage();
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Login fail");
@@ -231,6 +230,7 @@ public abstract class OAuthAuthenticator {
                         if (result.isPresent()){
                             if (result.get() == ButtonType.OK){
                                 // ... user chose OK
+                                mainview.setDisable(false);
                             }
                         }
 

@@ -205,11 +205,11 @@ public abstract class OAuthAuthenticator {
                                 alert.setTitle("Login fail");
                                 alert.setHeaderText("");
                                 alert.setContentText("Wrong email !!!");
-
                                 Optional<ButtonType> result = alert.showAndWait();
                                 if (result.isPresent()) {
                                     if (result.get() == ButtonType.OK) {
                                         // ... user chose OK
+                                        mainview.setDisable(false);
                                     }
                                 }
                             }
@@ -224,7 +224,6 @@ public abstract class OAuthAuthenticator {
                     }
 
                     if (engine.getLocation().contains("https://accounts.google.com/signin/oauth/error")) {
-                        mainview.setDisable(false);
                         closeStage();
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Login fail");
@@ -235,11 +234,15 @@ public abstract class OAuthAuthenticator {
                         if (result.isPresent()) {
                             if (result.get() == ButtonType.OK) {
                                 // ... user chose OK
+                                mainview.setDisable(false);
                             }
                         }
 
                     }
-                } catch (NullPointerException e) {
+
+                }catch (NullPointerException e){
+                    mainview.setDisable(false);
+                    e.printStackTrace();
                 }
             }
         });
@@ -322,8 +325,8 @@ public abstract class OAuthAuthenticator {
                 String uuid = doctor.getId().toString();
                 int lastSlash = uuid.lastIndexOf("-");
                 String doctorInfo = doctor.getFullName().trim().replaceAll("\\s+", "") + "_" + uuid.substring(lastSlash + 1);
-                File folder = new File("\\\\TECHNICIAN\\Data\\Technician\\Doctor\\" + doctorInfo);
-                String outPath = "Data/Doctor/" + doctorInfo;
+                File folder = new File("\\\\TECHNICIAN\\Data\\Technician\\Doctor\\" + doctorInfo+"\\");
+                String outPath = "Data\\Doctor\\" + doctorInfo+"\\";
                 String storagePath = "\\\\TECHNICIAN\\Data\\Storage\\" + doctorInfo + "\\";
 
                 while (true) {

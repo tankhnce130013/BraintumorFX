@@ -54,12 +54,12 @@
 }
 
 #txtTitle{
-    -fx-font-size: 30;
+    -fx-font-size: 20;
     -fx-font-weight: bold;
 }
 
 #txtNormal{
-    -fx-font-size: 30;
+    -fx-font-size: 20;
 }
 
 #txtInTextArea{
@@ -91,9 +91,4 @@
 
 .btnListSegment:pressed{
     -fx-background-color: #f2f2f2;
-}
-
-#lbStyle{
-    -fx-font-size: 20;
-    -fx-padding: 25,0,0,0;
 }

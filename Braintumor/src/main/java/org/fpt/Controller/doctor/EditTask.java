@@ -1,5 +1,9 @@
 package org.fpt.Controller.doctor;
 
+import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import org.fpt.DTO.DoctorDTO;
 import org.fpt.DTO.FullTaskDTO;
 import org.fpt.DTO.ImageDTO;
@@ -63,6 +67,8 @@ public class EditTask implements Initializable
     private Button btnFinish;
     @FXML
     private Button btnPredict;
+    @FXML
+    private Text txtReviewType;
 
     UUID taskID;
     DoctorDTO doctor;
@@ -73,6 +79,18 @@ public class EditTask implements Initializable
 
     PatientDTO patient = new PatientDTO();
     FullTaskDTO fullTaskDTO = new FullTaskDTO();
+
+    String getImageFullPath = "";
+    ImageDTO currentImage = new ImageDTO();
+
+    @FXML
+    private ScrollPane scroll;
+
+    @FXML
+    private GridPane grid;
+
+    @FXML
+    private ImageView imgReview;
 
     private String getTypeData(String data){
         switch (data){
@@ -182,69 +200,100 @@ public class EditTask implements Initializable
     }
 
     private void LoadDataToListview(){
+        int column = 0;
+        int row = 1;
         // load all image
         for (ImageDTO image: listImage){
             try {
-                Label lbl = new Label("");
-                lbl.setContentDisplay(ContentDisplay.LEFT);
-                InputStream is = new ByteArrayInputStream(image.getData());
-                BufferedImage ib = ImageIO.read(is);
-                WritableImage wi = SwingFXUtils.toFXImage(ib, null);
-                ImageView view = new ImageView(wi);
-                view.setFitHeight(80);
-                view.setPreserveRatio(true);
-                Label lbType = new Label(getTypeData(image.getType()));
-                lbType.setId("lbStyle");
-                HBox imageBox = new HBox(view, lbType);
-                imageBox.setPadding(new Insets(0,10,0,0));
-                imageBox.setPrefWidth(440);
-//                HBox.setMargin(imageBox, new Insets(0, 60, 0, 0));
                 Button btn = new Button();
-                btn.setText("Edit predict");
-                btn.setId("btnListSegment");
+
+                InputStream is      = new ByteArrayInputStream(image.getData());
+                BufferedImage ib    = ImageIO.read(is);
+                WritableImage wi    = SwingFXUtils.toFXImage(ib, null);
+
+                ImageView view = new ImageView(wi);
+                view.setFitHeight(90);
+                view.setPreserveRatio(true);
+
+                btn.setGraphic(view);
+                btn.setPadding(new Insets(5, 5, 5, 5));
+
                 btn.setOnAction((ActionEvent event) -> {
-                    ImageDTO img = image;
                     try {
-                        // load xml file
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/DoctorPredict.fxml"));
-                        Parent root;
-                        root = (Parent)fxmlLoader.load();
-                        Predict predict = fxmlLoader.<Predict>getController();
-                        predict.getData(img);
-                        Stage stage = new Stage();
-                        stage.setTitle("Predict");
-                        stage.initStyle(StageStyle.UNDECORATED);
-                        //grab your root here
-                        root.setOnMousePressed(e -> {
-                            xOffset = e.getSceneX();
-                            yOffset = e.getSceneY();
-                        });
-                        //move around here
-                        root.setOnMouseDragged(e -> {
-                            stage.setX(e.getScreenX() - xOffset);
-                            stage.setY(e.getScreenY() - yOffset);
-                        });
-                        // create new scene
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.showAndWait();
-                        if (predict.isSegment){
-                            ImageDTO i = predict.image;
-                            listImage.get(i.getId()).setType(i.getType());
-                            lbType.setText(getTypeData(i.getType()));
-                        }
+                        imgReview.setImage(wi);
+                        imgReview.setPreserveRatio(true);
+                        txtReviewType.setText(getTypeData(image.getType()));
+                        currentImage = image;
+                        getImageFullPath = image.getFullPath();
                     } catch (Exception e){
                         e.printStackTrace();
                     }
+
                 });
-                HBox hb = new HBox(imageBox, btn);
-                hb.setAlignment(Pos.CENTER_LEFT);
-                hb.setPadding(new Insets(10));
-                lbl.setGraphic(hb);
-                lvImage.getItems().add(lbl);
+
+                VBox menuButtons = new VBox();
+                menuButtons.getChildren().setAll(btn);
+
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                    HBox.setMargin(menuButtons, new Insets(0, 0, 0, 0));
+                } else {
+                    HBox.setMargin(menuButtons, new Insets(0, 50, 0, 0));
+                }
+
+                grid.add(menuButtons, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(menuButtons, new Insets(10));
             } catch (Exception e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    @FXML
+    private void onPredict(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/DoctorPredict.fxml"));
+            Parent root;
+            root = (Parent)fxmlLoader.load();
+
+            Predict predictController = fxmlLoader.<Predict>getController();
+            predictController.getData(currentImage);
+
+            Stage stage = new Stage();
+            stage.setTitle("Predict");
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.getIcons().add(new Image(getClass().getResource("/Image/Brain.png").toString()));
+            //grab your root here
+            root.setOnMousePressed(e -> {
+                xOffset = e.getSceneX();
+                yOffset = e.getSceneY();
+            });
+            //move around here
+            root.setOnMouseDragged(e -> {
+                stage.setX(e.getScreenX() - xOffset);
+                stage.setY(e.getScreenY() - yOffset);
+            });
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.showAndWait();
+            if (predictController.isSegment){
+                listImage.get(currentImage.getId()).setType(predictController.image.getType());
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 

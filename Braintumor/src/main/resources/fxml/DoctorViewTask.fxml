@@ -3,9 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +15,7 @@
 
 <VBox fx:id="mainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1240.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fpt.Controller.doctor.ViewTask">
     <children>
-        <HBox stylesheets="@ViewTask.css">
+        <HBox stylesheets="@../css/doctor/ViewTask.css">
             <children>
                 <ScrollPane fx:id="scroll" prefHeight="622.0" prefWidth="825.0" styleClass="grid-panel">
                     <content>
@@ -83,7 +83,7 @@
                 <Insets bottom="20.0" top="30.0" />
             </VBox.margin>
         </HBox>
-        <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@ViewTask.css">
+        <GridPane prefHeight="98.0" prefWidth="1280.0" stylesheets="@../css/doctor/ViewTask.css">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -82,6 +82,7 @@ public class EditTask implements Initializable
 
     String getImageFullPath = "";
     ImageDTO currentImage = new ImageDTO();
+    Button currentButton = new Button();
 
     @FXML
     private ScrollPane scroll;
@@ -225,6 +226,7 @@ public class EditTask implements Initializable
                         txtReviewType.setText(getTypeData(image.getType()));
                         currentImage = image;
                         getImageFullPath = image.getFullPath();
+                        currentButton = btn;
                     } catch (Exception e){
                         e.printStackTrace();
                     }
@@ -291,6 +293,7 @@ public class EditTask implements Initializable
             stage.showAndWait();
             if (predictController.isSegment){
                 listImage.get(currentImage.getId()).setType(predictController.image.getType());
+                currentButton.setId("btnAccept");
             }
         } catch (Exception e){
             e.printStackTrace();

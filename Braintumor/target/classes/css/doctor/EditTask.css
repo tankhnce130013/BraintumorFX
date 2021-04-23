@@ -92,3 +92,7 @@
 .btnListSegment:pressed{
     -fx-background-color: #f2f2f2;
 }
+
+#btnAccept{
+    -fx-background-color: #2699FB;
+}

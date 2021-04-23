@@ -224,6 +224,8 @@ public class ViewTask implements Initializable {
                 int column = 0;
                 int row = 1;
 
+                int index  = 0;
+
                 for (ImageDTO image: listImage){
                     try {
                         Button btn = new Button();
@@ -276,9 +278,18 @@ public class ViewTask implements Initializable {
                         grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                         GridPane.setMargin(menuButtons, new Insets(10));
+
+                        if (index == 0) {
+                            imgReview.setImage(wi);
+                            imgReview.setPreserveRatio(true);
+                            currentImage = image;
+                            getImageFullPath = image.getFullPath();
+                            currentButton = btn;
+                        }
                     } catch (Exception e){
                         e.printStackTrace();
                     }
+                    index ++;
                 }
             }
         }

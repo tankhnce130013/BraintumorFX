@@ -1,5 +1,6 @@
 package org.fpt.Controller.doctor;
 
+import javafx.scene.image.Image;
 import org.fpt.DTO.ImageDTO;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
@@ -42,6 +43,8 @@ public class Predict implements Initializable {
     private Button btnClose;
     @FXML
     private Button btnMinimize;
+    @FXML
+    private ImageView imgIcon;
 
     ArrayList<String> listType = new ArrayList<>();
 
@@ -208,6 +211,8 @@ public class Predict implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image2 = new Image(getClass().getResource("/Image/Brain.png").toString());
+        imgIcon.setImage(image2);
         Platform.runLater(() -> {
             listType.add("Above glioma tumor");
             listType.add("Front glioma tumor");

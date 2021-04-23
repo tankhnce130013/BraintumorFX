@@ -134,7 +134,7 @@ public class Profile implements Initializable {
                     txtDateOfBirth.setText(technicianDTO.getBirthdate());
                     txtSpecialty.setText(technicianDTO.getSpecialist());
                     //Creating a graphic (image)
-                    Image imgTech = new Image(getClass().getResource("/Image/a4040890a14cf4de8ecea56265f66cf7.png").toString());
+                    Image imgTech = new Image(getClass().getResource("/Image/").toString());
                     ImageView viewTech = new ImageView(imgTech);
                     viewTech.setFitHeight(189);
                     viewTech.setPreserveRatio(true);

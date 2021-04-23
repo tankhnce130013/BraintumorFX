@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -49,9 +50,9 @@
             <Insets />
          </VBox.margin>
       </VBox>
-      <VBox>
+      <AnchorPane>
          <children>
-            <GridPane prefHeight="50.0" stylesheets="@../css/javaFX.css">
+            <GridPane prefHeight="50.0" stylesheets="@../css/javaFX.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="983.7333374023438" minWidth="10.0" prefWidth="758.6666870117188" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="613.6000366210938" minWidth="10.0" prefWidth="481.33331298828125" />
@@ -72,11 +73,8 @@
                      </children>
                   </HBox>
                </children>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
             </GridPane>
-            <TableView fx:id="tvTask" maxHeight="354.4" minHeight="354.4" prefHeight="354.4" stylesheets="@../css/javaFX.css">
+            <TableView fx:id="tvTask" layoutY="70.39999866485596" maxHeight="377.0" minHeight="271.0" prefHeight="348.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                <columns>
                   <TableColumn id="txPatientElement" fx:id="colTaskNo" prefWidth="57.06665089925173" text="No" />
                   <TableColumn id="txPatientElement" fx:id="colTaskPatientName" prefWidth="372.2667465209961" text="Patient Name" />
@@ -85,25 +83,13 @@
                   <TableColumn id="txPatientElement" fx:id="colTaskStatus" prefWidth="125.60015869140625" text="Status" />
                   <TableColumn id="txPatientElement" fx:id="colTaskAction" prefWidth="122.66668701171875" text="Action" />
                </columns>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
             </TableView>
-            <Pagination fx:id="paTask" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="45.0" prefWidth="668.0" stylesheets="@../css/javaFX.css">
+            <Pagination fx:id="paTask" layoutY="444.80000019073486" nodeOrientation="LEFT_TO_RIGHT" pageCount="20" prefHeight="509.0" prefWidth="1240.0" stylesheets="@../css/javaFX.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
             </Pagination>
          </children>
-         <padding>
-            <Insets bottom="15.0" top="15.0" />
-         </padding>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </VBox>
+      </AnchorPane>
    </children>
 </VBox>

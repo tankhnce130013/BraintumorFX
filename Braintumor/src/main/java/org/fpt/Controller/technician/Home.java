@@ -247,7 +247,7 @@ public class Home implements Initializable {
             paTask.setPageFactory(this::createPage);
             tTaskModel taskModel = new tTaskModel();
             tCount = taskModel.loadHistoryNumbers(technicianDTO.getEmail());
-            txtWel.setText("Welcome "+ technicianDTO.getFullName()+"!");
+            txtWel.setText("Welcome Dr. "+ technicianDTO.getFullName()+"!");
         });
     }
 }

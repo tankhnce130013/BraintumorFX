@@ -1,5 +1,7 @@
 package org.fpt.Controller.technician;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.fpt.Model.DoctorModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -23,6 +25,8 @@ public class MainController implements Initializable {
     private Button btnClose;
     @FXML
     private Button btnMinimize;
+    @FXML
+    private ImageView imgIcon;
 
     private String email;
 
@@ -44,6 +48,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image(getClass().getResource("/Image/Brain.png").toString());
+        imgIcon.setImage(image);
         Platform.runLater(() -> {
             try {
                 FXMLLoader loader = new FXMLLoader(

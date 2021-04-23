@@ -60,11 +60,6 @@ public class ProfileEdit implements Initializable {
         cbGender.getSelectionModel().select(index);
     }
 
-    public LocalDate LOCAL_DATE (String dateString){
-        LocalDate localDate = LocalDate.parse(dateString);
-        return localDate;
-    }
-
     private void setDataToDatepicker(String data){
         String year = "";
         String mounth = "";

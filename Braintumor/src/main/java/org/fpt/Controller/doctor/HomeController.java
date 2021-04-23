@@ -431,7 +431,7 @@ public class HomeController implements Initializable {
                 // change doctor status
                 dModel.toggleDoctorOnline(email);
                 // set welcome text
-                txtWel.setText("Welcome "+doc.getFullName()+"!");
+                txtWel.setText("Welcome Dr. "+doc.getFullName()+"!");
                 // get task model
                 TaskModel taskModel = new TaskModel();
                 // get count of task and history

@@ -76,11 +76,9 @@ public class Add implements Initializable {
 
     private void setDataToDatepicker(){
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-        Date date = calendar.getTime();
         int day = calendar.get(Calendar.DATE);
         int month = calendar.get(Calendar.MONTH) + 1;
-        int year = calendar.get(Calendar.YEAR);
-        dpDateOfBirth.setValue(LocalDate.of(year, month, day));
+        dpDateOfBirth.setValue(LocalDate.of(1980, month, day));
     }
 
     @FXML

@@ -82,6 +82,7 @@ public class ViewTask implements Initializable {
 
     String getImageFullPath = "";
     ImageDTO currentImage = new ImageDTO();
+    Button currentButton = new Button();
 
     @FXML
     private ScrollPane scroll;
@@ -244,6 +245,7 @@ public class ViewTask implements Initializable {
                                 imgReview.setPreserveRatio(true);
                                 currentImage = image;
                                 getImageFullPath = image.getFullPath();
+                                currentButton = btn;
                             } catch (Exception e){
                                 e.printStackTrace();
                             }
@@ -316,6 +318,7 @@ public class ViewTask implements Initializable {
             stage.showAndWait();
             if (predictController.isSegment){
                 listPredictImage.add(predictController.image);
+                currentButton.setId("btnAccept");
             }
         } catch (Exception e){
             e.printStackTrace();

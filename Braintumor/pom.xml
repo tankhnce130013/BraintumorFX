@@ -27,7 +27,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>12</version>
-            <classifier>win</classifier>
         </dependency>
 
         <dependency>

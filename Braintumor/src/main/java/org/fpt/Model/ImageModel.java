@@ -25,7 +25,6 @@ public class ImageModel {
         try{
             stmt = connection.createStatement();
             String sql = "SELECT * FROM image WHERE id_task='" + tID.toString() + "';";
-            System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             while  (rs.next()){
                 String stringid = rs.getString("id");

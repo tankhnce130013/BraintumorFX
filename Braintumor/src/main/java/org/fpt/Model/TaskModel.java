@@ -30,9 +30,7 @@ public class TaskModel {
         int idCount=0;
         try{
             stmt = connection.createStatement();
-            System.out.println("his " +pageFrom);
             String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Completed' and d.mail='"+email+"' and t.status='Active' Order by t.predict_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
-            System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             while  (rs.next()){
                 String stringid = rs.getString("id");
@@ -110,7 +108,6 @@ public class TaskModel {
         try{
             stmt = connection.createStatement();
             String sql = "SELECT t.id, t.folder_name, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and t.status='Active' Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
-            System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             int index = 0;
             while  (rs.next()){
@@ -134,7 +131,6 @@ public class TaskModel {
             stmt.close();
             //connection.commit();
             connection.close();
-            System.out.println("Size:"+listTask.size());
         } catch(Exception e){
             e.printStackTrace();
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
@@ -186,7 +182,6 @@ public class TaskModel {
     }
 
     public ArrayList<TaskDTO> searchPagingTask(int page, String email, String patientName){
-        System.out.println("Page ne: " + page);
         int pageFrom=(page-1)*10;
         String limit = "10";
         ArrayList<TaskDTO> listTask = new ArrayList<TaskDTO>();
@@ -223,7 +218,6 @@ public class TaskModel {
         return listTask;
     }
     public ArrayList<HistoryDTO> searchPagingHistory(int page, String email, String patientName){
-        System.out.println("Page ne: " + page);
         int pageFrom=(page-1)*10;
         String limit = "10";
         ArrayList<HistoryDTO> listHistory = new ArrayList<HistoryDTO>();
@@ -283,7 +277,6 @@ public class TaskModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return id;
         }
-        System.out.println("Task created successfully");
         return id;
     }
     public void updateTask(UUID id,String folderName, UUID dID, String note){
@@ -304,7 +297,6 @@ public class TaskModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Task updated successfully");
     }
     public ArrayList<Task>  getAllPendingTaskByDoctorUUID(UUID doctorUUID){
         Connection connection = c.JdbcConnection();
@@ -351,7 +343,6 @@ public class TaskModel {
         UUID id = UUID.randomUUID();
         try{
             stmt = connection.createStatement();
-            System.out.println("CMM:"+ID);
             String sql = "SELECT id_patient FROM task WHERE id = '"+ID.toString()+"' and status='Active';";
             ResultSet rs = stmt.executeQuery(sql);
             int index = 0;
@@ -366,7 +357,6 @@ public class TaskModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             //System.exit(0);
         }
-        System.out.println("CMM:"+id);
         return id;
     }
 
@@ -406,7 +396,6 @@ public class TaskModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Task completed");
     }
     public Task loadTaskbyId(UUID taskId){
         Task task = new Task();

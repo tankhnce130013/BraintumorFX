@@ -152,7 +152,6 @@ public class Edit implements Initializable {
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
             String formattedDate = myDateObj.format(myFormatObj);
-            System.out.println("After formatting: " + formattedDate);
 
             File theDir = new File("C:\\program\\brain-tumor\\");
             if (!theDir.exists()){
@@ -169,7 +168,6 @@ public class Edit implements Initializable {
             zipFile(fileToZip, fileToZip.getName(), zipOut);
             zipOut.close();
             fos.close();
-            System.out.println("Zip file successful");
         } catch (Exception e){
             System.out.println(e);
         }

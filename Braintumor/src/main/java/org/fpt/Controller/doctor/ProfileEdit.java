@@ -108,7 +108,6 @@ public class ProfileEdit implements Initializable {
                     LocalDate localDate = dpDateOfBirth.getValue();
                     Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
                     Date date = Date.from(instant);
-                    System.out.println(localDate + "\n" + instant + "\n" + date);
 
                     String fullname  = tfName.getText().trim();
                     String specalist = tfSpecialty.getText().trim();

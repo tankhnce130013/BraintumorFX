@@ -97,10 +97,8 @@ public class ViewTask implements Initializable {
     private double yOffset = 0;
 
     private String getRedictData(String url){
-        System.out.println(url);
         int index = url.lastIndexOf("\\");
         String fileName = url.substring(index + 1);
-        System.out.println("File name: " + fileName);
         String predict ="";
         try {
             OkHttpClient client = new OkHttpClient().newBuilder()
@@ -119,7 +117,6 @@ public class ViewTask implements Initializable {
             Response response = client.newCall(request).execute();
 
             predict = response.body().string();
-            System.out.println(predict);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -195,9 +192,7 @@ public class ViewTask implements Initializable {
 
         int id = 0;
         // file unzip
-        System.out.println(fullTaskDTO.getFolderName());
         File selectedDirectory = new File("/Users/macbookair/Desktop/BrainTumor/unzip/"+ fullTaskDTO.getFolderName());
-        System.out.println("File length " + selectedDirectory.exists());
         if (selectedDirectory.exists()){
             File[] files = selectedDirectory.listFiles();
             if (files.length != 0){

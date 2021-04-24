@@ -317,9 +317,6 @@ public class EditTask implements Initializable
             patient = patientModel.loadPatient(fullTaskDTO.getIdPatient());
             listImage = imageModel.loadAllImage(fullTaskDTO.getId());
 
-            System.out.println(fullTaskDTO.getId().toString());
-            System.out.println(listImage.size());
-
             lbName.setText(patient.getFullname());
             lbDateOfBirth.setText(patient.getDateOfBirth());
             lbGender.setText(patient.getGender());

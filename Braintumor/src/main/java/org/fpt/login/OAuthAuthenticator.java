@@ -104,9 +104,7 @@ public abstract class OAuthAuthenticator {
                         String returnedJson = doGetAccountInfo(accessToken);
 
                         accessedJsonData = new JSONObject(returnedJson);
-                        System.out.println(returnedJson);
                         String email = (String) accessedJsonData.get("email");
-                        System.out.println("Email: " + email);
 
                         Operation operation = new Operation();
                         int index = operation.checkLogin(email);
@@ -116,7 +114,7 @@ public abstract class OAuthAuthenticator {
                                 signInMail = email;
                                 //Get connection to Sharing file folder
                                 String command = "cmd.exe /c NET USE E: \\\\TECHNICIAN\\Data  /u:hntan1769@mail.com ZtenQw@1769";
-                                System.out.println(command);
+
                                 try {
                                     Process p = Runtime.getRuntime().exec(command);
                                     p.destroy();
@@ -162,7 +160,7 @@ public abstract class OAuthAuthenticator {
                             } else if (index == 2) {
                                 //Get connection to Sharing file folder
                                 String command = "cmd.exe /c NET USE E: \\\\TECHNICIAN\\Data  /u:hntan1769@mail.com ZtenQw@1769";
-                                System.out.println(command);
+
                                 try {
                                     Process p = Runtime.getRuntime().exec(command);
                                     p.destroy();
@@ -295,7 +293,6 @@ public abstract class OAuthAuthenticator {
 
         public void run() {
             Doctor doctor;
-            System.out.println(signInMail);
             if (signInMail != "") {
                 //Setting up info
                 // Checking PC Name
@@ -345,7 +342,6 @@ public abstract class OAuthAuthenticator {
                                 CutFile(file.getPath(), storagePath);
                             }
                         }
-                        System.out.println("AUTO SCanning : No New File.zip");
                         Thread.sleep(5000);
                     } catch (InterruptedException | IOException e) {
                         e.printStackTrace();
@@ -379,7 +375,7 @@ public abstract class OAuthAuthenticator {
         public void CutFile(String sent_path, String recive_path) {
 
             String command = "cmd.exe /c move  " + sent_path + "  " + recive_path;
-            System.out.println(command);
+
             try {
                 Process p = Runtime.getRuntime().exec(command);
 
@@ -561,7 +557,6 @@ public abstract class OAuthAuthenticator {
             connection2.setDoInput(true);
             connection2.setDoOutput(true);
 
-            System.out.println("URL: " + getApiTokenUrl());
 
             int reponseCode2 = connection2.getResponseCode();
 
@@ -591,8 +586,6 @@ public abstract class OAuthAuthenticator {
             URL url = new URL(getApiAccessUrl());
             String urlParams = getApiAccessParams();
 
-            System.out.println("URL: " + getApiAccessUrl());
-            System.out.println("PARAMS: " + urlParams);
 
             byte[] postData = urlParams.getBytes(StandardCharsets.UTF_8);
             int postDataLength = postData.length;
@@ -618,7 +611,7 @@ public abstract class OAuthAuthenticator {
 
             int responseCode = connection.getResponseCode();
 
-            System.out.println(responseCode);
+
 
             if (responseCode == HttpURLConnection.HTTP_OK) { // success
                 System.err.println("Success getting access token for OAuth Login!");
@@ -640,10 +633,6 @@ public abstract class OAuthAuthenticator {
             JSONObject json = new JSONObject(fullResponse);
 
             String accessToken = json.getString("access_token");
-
-            System.out.println(fullResponse);
-
-            System.out.println("ACCESS TOKEN: " + accessToken);
 
             return accessToken;
         } catch (IOException e) {

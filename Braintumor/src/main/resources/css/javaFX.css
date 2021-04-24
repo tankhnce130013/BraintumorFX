@@ -216,9 +216,13 @@
 }
 
 #btnAction{
-    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-border-color: #2699FB;
+    -fx-border-width: 2;
+    -fx-background-color: #fff;
     -fx-text-fill: #2699FB;
     -fx-font-weight: bold;
+    -fx-border-radius: 4;
 }
 
 #btnAction:hover{

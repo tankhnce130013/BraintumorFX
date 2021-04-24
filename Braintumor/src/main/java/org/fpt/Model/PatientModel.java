@@ -38,7 +38,6 @@ public class PatientModel {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             return UUID.randomUUID();
         }
-        System.out.println("Insert patient successfully");
         return id;
     }
     /*Load patient data from database by using patient id*/

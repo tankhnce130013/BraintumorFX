@@ -104,7 +104,6 @@ public class Add implements Initializable {
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
             String formattedDate = myDateObj.format(myFormatObj);
-            System.out.println("After formatting: " + formattedDate);
 
 //            File theDir = new File("C:\\program\\brain-tumor\\");
 //            if (!theDir.exists()){
@@ -121,21 +120,7 @@ public class Add implements Initializable {
             zipFile(fileToZip, fileToZip.getName(), zipOut);
             zipOut.close();
             fos.close();
-            System.out.println("Zip file successful");
         } catch (Exception e){
-            System.out.println(e);
-        }
-    }
-
-
-
-    @FXML
-    private void UploadImageFromDirection(){
-        int id = 0;
-        try {
-
-        } catch (Exception e){
-            System.out.println("UploadImageFromDirection");
             System.out.println(e);
         }
     }
@@ -243,7 +228,6 @@ public class Add implements Initializable {
                     int lastSlash_ = dirFile.lastIndexOf("\\");
                     String base_dir = dirFile.substring(0,lastSlash_);
                     String sent_ =base_dir+"\\"+zipName;
-                    System.out.println(dirFile);
                     String doctorInfo = doctor.getFullName().trim().replaceAll("\\s+", "")+"_"+uuid.substring(lastSlash+1);
                     recive = "\\\\TECHNICIAN\\Data\\Technician\\Doctor\\"+doctorInfo;
                     File file = new File(recive);
@@ -274,7 +258,6 @@ public class Add implements Initializable {
     public static void CopyToShaingFolder(String sent_path, String recive_path) {
 
         String command = "cmd.exe /c Copy  \"" + sent_path + "\"  \"" + recive_path + "\"";
-        System.out.println(command);
         try {
             Process p = Runtime.getRuntime().exec(command);
 
@@ -300,7 +283,6 @@ public class Add implements Initializable {
     public  void Sharing() {
         String folder = "\\\\TECHNICIAN\\Data";
         String command = "NET USE E: " + folder;
-        System.out.println(command);
         try {
             Process p = Runtime.getRuntime().exec(command);
             BufferedReader BR = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -322,7 +304,6 @@ public class Add implements Initializable {
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH_mm_ss");
             String formattedDate = myDateObj.format(myFormatObj);
-            System.out.println("After formatting: " + formattedDate);
 
 
             //rename the folder to key of patient
@@ -334,7 +315,6 @@ public class Add implements Initializable {
 
             String command = "cmd.exe /c cd "+base_dir+" && rename " + BaseFolderName+" "+patientName+"_"+formattedDate;
             dirFile = base_dir+"\\"+patientName+"_"+formattedDate;
-            System.out.println(command);
             try {
                 Process p = Runtime.getRuntime().exec(command);
                 BufferedReader BR = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -342,7 +322,6 @@ public class Add implements Initializable {
                 while ((l = BR.readLine()) != null) {
                     System.out.print(l);
                 }
-                System.out.println("success");
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -355,7 +334,6 @@ public class Add implements Initializable {
             zipFile(fileToZip, fileToZip.getName(), zipOut);
             zipOut.close();
             fos.close();
-            System.out.println("Zip file successful");
             return patientName + "_" + formattedDate + ".zip";
         } catch (Exception e) {
             System.out.println(e);
@@ -388,7 +366,6 @@ public class Add implements Initializable {
         int length;
         while ((length = fis.read(bytes)) >= 0) {
             zipOut.write(bytes, 0, length);
-            System.out.println(length);
         }
         fis.close();
     }

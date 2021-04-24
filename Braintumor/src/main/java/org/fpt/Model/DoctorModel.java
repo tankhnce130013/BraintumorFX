@@ -48,7 +48,6 @@ public class DoctorModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Doctor updated successfully");
     }
     /*Load doctor information from database by using email*/
     public DoctorDTO loadDoctor(String mail){
@@ -169,7 +168,6 @@ public class DoctorModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Doctor updated successfully");
     }
     /*Update status of doctor to offline*/
     public void toggleDoctorOffline(String mail){
@@ -192,7 +190,6 @@ public class DoctorModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Doctor updated successfully");
     }
     /*Check sign in account doctor by using email*/
     public boolean checkDoctor(String email){
@@ -238,6 +235,5 @@ public class DoctorModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Doctor updated successfully");
     }
 }

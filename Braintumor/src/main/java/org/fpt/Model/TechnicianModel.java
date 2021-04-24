@@ -103,7 +103,6 @@ public class TechnicianModel {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             return;
         }
-        System.out.println("Technician updated successfully");
     }
 
     public void disableTechnician(String mail) {
@@ -121,6 +120,5 @@ public class TechnicianModel {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             return;
         }
-        System.out.println("Technician disable successfully");
     }
 }

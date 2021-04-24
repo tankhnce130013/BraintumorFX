@@ -30,7 +30,7 @@ public class TaskModel {
         int idCount=0;
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Completed' and d.mail='"+email+"' and t.status='Active' Order by t.predict_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
+            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Completed' and d.mail='"+email+"' and (t.status='Active' or t.status='[EDITED]') Order by t.predict_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
             ResultSet rs = stmt.executeQuery(sql);
             while  (rs.next()){
                 String stringid = rs.getString("id");
@@ -61,7 +61,7 @@ public class TaskModel {
         int count = 1;
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and t.status='Active';";
+            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and (t.status='Active' or t.status='[EDITED]');";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 count = rs.getInt("count");
@@ -107,7 +107,7 @@ public class TaskModel {
         Patient patient = new Patient();
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT t.id, t.folder_name, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and t.status='Active' Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
+            String sql = "SELECT t.id, t.folder_name, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and (t.status='Active' or t.status='[EDITED]') Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
             ResultSet rs = stmt.executeQuery(sql);
             int index = 0;
             while  (rs.next()){
@@ -119,11 +119,7 @@ public class TaskModel {
                 String birthdate = rs.getString("birthdate");
                 String upload_date = rs.getString("upload_date");
                 String status = rs.getString("status");
-                int flag= 0;
-                flag = folder_name.indexOf("_EDIT_");
-                if(flag !=0){
-                    pName+="    [EDITED]";
-                }
+
                 Task = new TaskDTO(index, id, pName, gender, birthdate, upload_date, status);
                 listTask.add(Task);
                 index ++;
@@ -145,7 +141,7 @@ public class TaskModel {
         int count = 1;
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and p.full_name like '%"+patientName+ "%'";
+            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and (t.status='Active' or t.status='[EDITED]') and d.mail='"+email+"' and p.full_name like '%"+patientName+ "%'";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 count = rs.getInt("count");
@@ -192,7 +188,7 @@ public class TaskModel {
         Patient patient = new Patient();
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and p.full_name like '%"+patientName+"%' and t.status='Active' Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
+            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and d.mail='"+email+"' and p.full_name like '%"+patientName+"%' and (t.status='Active' or t.status='[EDITED]') Order by t.predict_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
             ResultSet rs = stmt.executeQuery(sql);
             int index = 0;
             while  (rs.next()){
@@ -228,7 +224,7 @@ public class TaskModel {
         Patient patient = new Patient();
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Completed' and d.mail='"+email+"' and p.full_name like '%"+patientName+"%' and t.status='Active' Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
+            String sql = "SELECT t.id, p.full_name, p.gender, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Completed' and d.mail='"+email+"' and p.full_name like '%"+patientName+"%' and (t.status='Active' or t.status='[EDITED]') Order by t.predict_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
             ResultSet rs = stmt.executeQuery(sql);
             int index = 0;
             while  (rs.next()){
@@ -284,8 +280,9 @@ public class TaskModel {
         Statement stmt = null;
         try{
             stmt = connection.createStatement();
+            String edit = "[EDITED]";
             String sql1 = "SET datestyle = ymd;";
-            String sql2 = "UPDATE task set folder_name='" + folderName+"_EDIT_" +"', id_doctor='" + dID.toString()+"', note='"+note+
+            String sql2 = "UPDATE task set folder_name='" + folderName +"', id_doctor='" + dID.toString()+"', note='"+note+"', status='" +edit+
                     "' WHERE id='"+id.toString()+"';";
             stmt.execute(sql1);
             stmt.executeUpdate(sql2);

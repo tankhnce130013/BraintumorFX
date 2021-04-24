@@ -200,7 +200,7 @@ public class ViewTask implements Initializable {
                     try {
                         String fullPath = f.getAbsolutePath();
                         String fileExtension = fullPath.substring(fullPath.lastIndexOf('.'));
-                        if (fileExtension.equals(".png") || fileExtension.equals(".jpg") || fileExtension.equals(".PNG") || fileExtension.equals(".JPG")){
+                        if (fileExtension.equals(".png") || fileExtension.equals(".jpg")|| fileExtension.equals(".jpeg") || fileExtension.equals(".PNG") || fileExtension.equals(".JPG")|| fileExtension.equals(".JPEG")){
                             FileInputStream fin = new FileInputStream(f);
                             ByteArrayOutputStream bos = new ByteArrayOutputStream();
                             byte[] buf = new byte[1024];

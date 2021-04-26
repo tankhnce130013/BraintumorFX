@@ -63,14 +63,14 @@
                         <Text id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Note" GridPane.rowIndex="5" />
                         <ScrollPane prefHeight="133.0" prefWidth="249.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <content>
-                              <TextArea id="txtInTextArea" fx:id="taNote" editable="false" prefHeight="130.0" prefWidth="347.0" style="-fx-background-color: none;" text="aaaaaaaaaaaaaaaa" wrapText="true" />
+                              <TextArea id="txtInTextArea" fx:id="taNote" editable="false" prefHeight="130.0" prefWidth="347.0" style="-fx-background-color: none;" wrapText="true" />
                            </content>
                         </ScrollPane>
-                        <Label id="txtNormal" fx:id="lbName" text="Label" wrapText="true" GridPane.columnIndex="1" />
-                        <Label id="txtNormal" fx:id="lbDateOfBirth" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label id="txtNormal" fx:id="lbGender" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label id="txtNormal" fx:id="lbPhone" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label id="txtNormal" fx:id="lbHealthInsurance" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label id="txtNormal" fx:id="lbName" wrapText="true" GridPane.columnIndex="1" />
+                        <Label id="txtNormal" fx:id="lbDateOfBirth" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label id="txtNormal" fx:id="lbGender" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label id="txtNormal" fx:id="lbPhone" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label id="txtNormal" fx:id="lbHealthInsurance" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" />

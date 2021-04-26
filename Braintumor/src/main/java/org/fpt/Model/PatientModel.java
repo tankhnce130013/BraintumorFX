@@ -80,12 +80,11 @@ public class PatientModel {
                     "WHERE id='"+id.toString()+"';";
             stmt.execute(sql1);
             stmt.executeUpdate(sql2);
-            connection.commit();
             stmt.close();
+            connection.commit();
             connection.close();
         } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            e.printStackTrace();
         }
         return id;
     }

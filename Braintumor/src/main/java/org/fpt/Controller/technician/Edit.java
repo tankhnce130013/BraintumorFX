@@ -274,7 +274,7 @@ public class Edit implements Initializable {
             UUID docId = listDoc.get(i).getId();
 
             Operation operation = new Operation();
-            operation.updatePatientAndTask(name, birth, gender, phone, heath, nameFileZip, note, docId, fullTaskDTO.getId());
+            operation.updatePatientAndTask(name, birth, gender, phone, heath, nameFileZip, note, docId, fullTaskDTO.getId(), fullTaskDTO.getIdPatient());
             try {
                 //store data
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

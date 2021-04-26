@@ -22,7 +22,7 @@ public class tTaskModel {
         int idCount=0;
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT t.id, p.full_name, d.full_name as doctor_name, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join technician t2 on t2.id=t.id_technician join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and t2.mail='"+email+"' and t.status='Active' offset " + String.valueOf(pageFrom) +" limit " +limit;
+            String sql = "SELECT t.id, p.full_name, d.full_name as doctor_name, p.birthdate, t.upload_date, t.status FROM task t JOIN patient p on p.id=t.id_patient join technician t2 on t2.id=t.id_technician join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and t2.mail='"+email+"' and t.status='Active' or t.status='[EDITED]' Order by t.upload_date DESC offset " + String.valueOf(pageFrom) +" limit " +limit;
             ResultSet rs = stmt.executeQuery(sql);
             while  (rs.next()){
                 String stringid = rs.getString("id");
@@ -69,7 +69,7 @@ public class tTaskModel {
         int count = 0;
         try{
             stmt = connection.createStatement();
-            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join technician t2 on t2.id=t.id_technician join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and t2.mail='\"+email+\"' and t.status='Active' and (p.full_name like '%"+patientName+ "%' or d.full_name='%"+doctorName+"%' );";
+            String sql = "SELECT COUNT(*) FROM task t JOIN patient p on p.id=t.id_patient join technician t2 on t2.id=t.id_technician join doctor d on d.id=t.id_doctor WHERE t.predict_status = 'Pending' and t2.mail='\"+email+\"' and t.status='Active' or t.status='[EDITED]' and (p.full_name like '%"+patientName+ "%' or d.full_name='%"+doctorName+"%' ) Order by t.upload_date DESC;";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 count = rs.getInt("count");

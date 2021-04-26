@@ -25,7 +25,7 @@ public class Operation {
         }
     }
     /*Update information of patient and task simultaneously*/
-    public void updatePatientAndTask(String fullName, String dateOfBirth, String gender, String phone, String healthInsurance, String folderName, String note, UUID dID, UUID tID){
+    public void updatePatientAndTask(String fullName, String dateOfBirth, String gender, String phone, String healthInsurance, String folderName, String note, UUID dID, UUID tID, UUID pID){
         Connection connection = c.JdbcConnection();
         Statement stmt = null;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -34,7 +34,6 @@ public class Operation {
         TaskModel taskModel = new TaskModel();
         try{
             taskModel.updateTask(tID, folderName, dID, note);
-            UUID pID=taskModel.getPatientID(tID);
             patientModel.updatePatient(pID, fullName, dateOfBirth, gender, phone, healthInsurance);
         }catch(Exception e){
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );

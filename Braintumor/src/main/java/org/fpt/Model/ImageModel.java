@@ -35,6 +35,7 @@ public class ImageModel {
                 String confirm_date = rs.getString("confirm_date");
                 Image = new ImageDTO(index, id,"", decodedBytes, type_of_tumor, confirm_date);
                 listImage.add(Image);
+                index++;
             }
             stmt.close();
             //connection.commit();
